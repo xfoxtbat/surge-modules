@@ -1,0 +1,8 @@
+#!name=小红书 Cookie 抓取
+#!desc=拦截小红书任意响应，自动从 Set-Cookie 中提取 a1 / web_session / webId，合并保存到 $persistentStore（key: xhs_cookies），全部就绪时推送通知。使用前确保已开启 MITM 根证书信任。
+
+[MITM]
+hostname = %APPEND% *.xiaohongshu.com
+
+[Script]
+xhs-cookie-grab = type=http-response, pattern=^https://www\.xiaohongshu\.com, requires-body=false, max-size=0, script-path=https://raw.githubusercontent.com/xfoxtbat/surge-modules/main/xhs_cookie_grab.js
