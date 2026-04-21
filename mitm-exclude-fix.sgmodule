@@ -1,0 +1,5 @@
+#!name=MITM Exclude Fix
+#!desc=排除不应被 MITM 的域名，解决 cert pinning 导致的连接异常
+
+[MITM]
+hostname = %INSERT% -fluxapi.vvebo.vip, -*.vvebo.vip
